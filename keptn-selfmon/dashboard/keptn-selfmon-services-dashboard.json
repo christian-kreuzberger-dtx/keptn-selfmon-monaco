@@ -5,7 +5,7 @@
       "owner": "nobody@dynatrace.com",
       "sharingDetails": {
         "linkShared": true,
-        "published": false
+        "published": true
       },
       "dashboardFilter": {
         "timeframe": "",
@@ -14,23 +14,20 @@
     },
     "tiles": [
       {
-        "name": "Service health",
+        "name": "keptn selfmon services",
         "tileType": "SERVICES",
         "configured": true,
         "bounds": {
-          "top": 0,
-          "left": 380,
+          "top": 38,
+          "left": 0,
           "width": 304,
           "height": 304
         },
-        "tileFilter": {
-          "timeframe": null,
-          "managementZone": null
-        },
+        "tileFilter": {},
         "filterConfig": {
           "type": "SERVICE",
-          "customName": "Services",
-          "defaultName": "Services",
+          "customName": "keptn selfmon services",
+          "defaultName": "keptn selfmon services",
           "chartConfig": {
             "legendShown": true,
             "type": "TIMESERIES",
@@ -44,41 +41,494 @@
               ]
             }
           }
+        },
+        "chartVisible": true
+      },
+      {
+        "name": "Keptn SelfMon Service Responsetime",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 304,
+          "width": 1254,
+          "height": 266
+        },
+        "tileFilter": {},
+        "customName": "Data explorer results",
+        "queries": [
+          {
+            "id": "A",
+            "metric": "builtin:service.response.time",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [
+              "dt.entity.service"
+            ],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.service",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon_service",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
+          }
+        ],
+        "visualConfig": {
+          "type": "GRAPH_CHART",
+          "global": {
+            "theme": "DEFAULT",
+            "seriesType": "LINE"
+          },
+          "rules": []
         }
       },
       {
-        "name": "Service or request",
-        "tileType": "SERVICE_VERSATILE",
-        "configured": false,
+        "name": "Keptn SelfMon Service Throughput/Errors",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+          "top": 38,
+          "left": 304,
+          "width": 1254,
+          "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Data explorer results",
+        "queries": [
+          {
+            "id": "A",
+            "metric": "builtin:service.requestCount.total",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.service",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon_service",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
+          },
+          {
+            "id": "B",
+            "metric": "builtin:service.errors.total.rate",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.service",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon_service",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
+          }
+        ],
+        "visualConfig": {
+          "type": "GRAPH_CHART",
+          "global": {
+            "theme": "DEFAULT",
+            "threshold": {
+              "axisTarget": "LEFT",
+              "rules": [
+                {
+                  "color": "#7dc540"
+                },
+                {
+                  "color": "#f5d30f"
+                },
+                {
+                  "color": "#dc172a"
+                }
+              ]
+            },
+            "seriesType": "LINE"
+          },
+          "rules": []
+        }
+      },
+      {
+        "name": "Keptn SelfMon Service Responsetime",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+          "top": 342,
+          "left": 0,
+          "width": 304,
+          "height": 266
+        },
+        "tileFilter": {},
+        "customName": "Data explorer results",
+        "queries": [
+          {
+            "id": "A",
+            "metric": "builtin:service.response.time",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [
+              "dt.entity.service"
+            ],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.service",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon_service",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
+          }
+        ],
+        "visualConfig": {
+          "type": "TOP_LIST",
+          "global": {
+            "theme": "DEFAULT",
+            "threshold": {
+              "axisTarget": "LEFT",
+              "columnId": "Response time",
+              "rules": [
+                {
+                  "color": "#7dc540"
+                },
+                {
+                  "color": "#f5d30f"
+                },
+                {
+                  "color": "#dc172a"
+                }
+              ]
+            },
+            "seriesType": "LINE"
+          },
+          "rules": []
+        }
+      },
+      {
+        "name": "Keptn Selfmon Service Health",
+        "tileType": "HEADER",
+        "configured": true,
         "bounds": {
           "top": 0,
-          "left": 722,
+          "left": 0,
+          "width": 1558,
+          "height": 38
+        },
+        "tileFilter": {}
+      },
+      {
+        "name": "Keptn Selfmon Container Memory Usage",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+          "top": 646,
+          "left": 0,
+          "width": 1558,
+          "height": 38
+        },
+        "tileFilter": {}
+      },
+      {
+        "name": "Keptn SelfMon Memory Usage",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+          "top": 950,
+          "left": 304,
+          "width": 1254,
+          "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Data explorer results",
+        "queries": [
+          {
+            "id": "A",
+            "metric": "builtin:tech.generic.mem.workingSetSize",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [
+              "dt.entity.process_group_instance"
+            ],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.process_group_instance",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
+          }
+        ],
+        "visualConfig": {
+          "type": "GRAPH_CHART",
+          "global": {
+            "theme": "DEFAULT",
+            "seriesType": "LINE"
+          },
+          "rules": []
+        }
+      },
+      {
+        "name": "Keptn SelfMon Memory Usage",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+          "top": 950,
+          "left": 0,
           "width": 304,
           "height": 304
         },
-        "tileFilter": {
-          "timeframe": null,
-          "managementZone": null
-        },
-        "filterConfig": {
-          "type": "SERVICE",
-          "customName": "Services",
-          "defaultName": "Services",
-          "chartConfig": {
-            "legendShown": true,
-            "type": "TIMESERIES",
-            "series": [],
-            "resultMetadata": {}
-          },
-          "filtersPerEntityType": {
-            "SERVICE": {
-              "AUTO_TAGS": [
-                "keptn_selfmon"
-              ]
-            }
+        "tileFilter": {},
+        "customName": "Data explorer results",
+        "queries": [
+          {
+            "id": "A",
+            "metric": "builtin:tech.generic.mem.workingSetSize",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [
+              "dt.entity.process_group_instance"
+            ],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.process_group_instance",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
           }
+        ],
+        "visualConfig": {
+          "type": "TOP_LIST",
+          "global": {
+            "theme": "DEFAULT",
+            "threshold": {
+              "axisTarget": "LEFT",
+              "rules": [
+                {
+                  "color": "#7dc540"
+                },
+                {
+                  "color": "#f5d30f"
+                },
+                {
+                  "color": "#dc172a"
+                }
+              ]
+            },
+            "seriesType": "LINE"
+          },
+          "rules": []
+        }
+      },
+      {
+        "name": "Distributor Memory Usage",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+          "top": 684,
+          "left": 304,
+          "width": 1254,
+          "height": 266
         },
-        "assignedEntities": []
+        "tileFilter": {},
+        "customName": "Data explorer results",
+        "queries": [
+          {
+            "id": "A",
+            "metric": "builtin:tech.generic.mem.workingSetSize",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [
+              "dt.entity.process_group_instance"
+            ],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.process_group_instance",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon",
+                      "evaluator": "IN"
+                    }
+                  ]
+                },
+                {
+                  "filter": "dt.entity.process_group_instance",
+                  "filterType": "NAME",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "distributor",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
+          }
+        ],
+        "visualConfig": {
+          "type": "GRAPH_CHART",
+          "global": {
+            "theme": "DEFAULT",
+            "seriesType": "LINE"
+          },
+          "rules": []
+        }
+      },
+      {
+        "name": "Distributor Memory Usage",
+        "tileType": "DATA_EXPLORER",
+        "configured": true,
+        "bounds": {
+          "top": 684,
+          "left": 0,
+          "width": 304,
+          "height": 266
+        },
+        "tileFilter": {},
+        "customName": "Data explorer results",
+        "queries": [
+          {
+            "id": "A",
+            "metric": "builtin:tech.generic.mem.workingSetSize",
+            "spaceAggregation": "AVG",
+            "timeAggregation": "DEFAULT",
+            "splitBy": [
+              "dt.entity.process_group_instance"
+            ],
+            "filterBy": {
+              "filterOperator": "AND",
+              "nestedFilters": [
+                {
+                  "filter": "dt.entity.process_group_instance",
+                  "filterType": "NAME",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "distributor",
+                      "evaluator": "IN"
+                    }
+                  ]
+                },
+                {
+                  "filter": "dt.entity.process_group_instance",
+                  "filterType": "TAG",
+                  "filterOperator": "OR",
+                  "nestedFilters": [],
+                  "criteria": [
+                    {
+                      "value": "keptn_selfmon",
+                      "evaluator": "IN"
+                    }
+                  ]
+                }
+              ],
+              "criteria": []
+            },
+            "enabled": true
+          }
+        ],
+        "visualConfig": {
+          "type": "TOP_LIST",
+          "global": {
+            "theme": "DEFAULT",
+            "threshold": {
+              "axisTarget": "LEFT",
+              "rules": [
+                {
+                  "color": "#7dc540"
+                },
+                {
+                  "color": "#f5d30f"
+                },
+                {
+                  "color": "#dc172a"
+                }
+              ]
+            },
+            "seriesType": "LINE"
+          },
+          "rules": []
+        }
       }
     ]
   }
