@@ -1,0 +1,5 @@
+config:
+  - dashboard: "keptn-selfmon-services-dashboard.json"
+
+dashboard:
+  - name: "Keptn SelfMon Service Dashboard"

@@ -1,0 +1,22 @@
+{
+    "type": "SERVICE",
+    "nameFormat": "{ProcessGroup:KubernetesContainerName} {Service:DetectedName} ",
+    "displayName": "{{ .name }}",
+    "enabled": true,
+    "rules": [
+      {
+        "key": {
+          "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+          "dynamicKey": "KUBERNETES_NAMESPACE",
+          "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        },
+        "comparisonInfo": {
+          "type": "STRING",
+          "operator": "EQUALS",
+          "value": "keptn",
+          "negate": false,
+          "caseSensitive": true
+        }
+      }
+    ]
+  }

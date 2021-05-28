@@ -1,0 +1,5 @@
+config:
+  - keptn-selfmon-service-naming: "keptn-selfmon-service-naming.json"
+
+keptn-selfmon-service-naming:
+  - name: "Keptn Selfmon Service Naming"

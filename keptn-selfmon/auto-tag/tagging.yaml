@@ -1,0 +1,13 @@
+config:
+  - keptn-selfmon-tag: "keptn-selfmon-tagging.json"
+  - keptn-selfmon-service-tag: "keptn-selfmon-tagging.json"
+
+keptn-selfmon-tag:
+  - name: "keptn_selfmon"
+    namespace: "keptn"
+    valueFormat: ""
+    
+keptn-selfmon-service-tag:
+  - name: "keptn_selfmon_service"
+    namespace: "keptn"
+    valueFormat: "{ProcessGroup:KubernetesContainerName}"

@@ -1,0 +1,5 @@
+config:
+  - keptn-selfmon-pg-naming: "keptn-selfmon-pg-naming.json"
+
+keptn-selfmon-pg-naming:
+  - name: "Keptn Selfmon PG Naming"

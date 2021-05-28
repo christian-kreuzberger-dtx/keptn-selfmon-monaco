@@ -1,0 +1,4 @@
+environment1:
+  - name: "Keptn Selfmon Env"
+  - env-url: "{{ .Env.DT_API_URL }}"
+  - env-token-name: "DT_API_TOKEN"
