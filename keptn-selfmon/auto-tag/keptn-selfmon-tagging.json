@@ -2,11 +2,11 @@
     "name": "{{ .name }}",
     "rules": [
         {
-          "type": "SERVICE",
+          "type": "PROCESS_GROUP",
           "enabled": true,
           "valueFormat": "{{ .valueFormat }}",
           "propagationTypes": [
-            "SERVICE_TO_PROCESS_GROUP_LIKE"
+            "PROCESS_GROUP_TO_SERVICE"
           ],
           "conditions": [
             {
